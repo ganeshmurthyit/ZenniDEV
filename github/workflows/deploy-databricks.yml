@@ -14,6 +14,6 @@ jobs:
  pip install databricks-cli
  - name: Deploy notebooks
  run: |
- databricks workspace import_dir /path/to/notebooks /destination/path
+ databricks workspace import_dir ganeshmurthyit/ZenniDEV/cleanup (1).py /Workspace/Shared/GCPCICD
  # You may need to authenticate with Databricks using a token or username/password
  # Example: databricks configure --token
