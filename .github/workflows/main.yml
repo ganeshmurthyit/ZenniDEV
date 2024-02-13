@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy notebooks
         run: |
-          databricks workspace import_dir ganeshmurthyit/ZenniDEV/cleanup (1).py /Workspace/Shared/GCPCICD
+          databricks workspace import_dir ganeshmurthyit/ZenniDEV/ /Workspace/Shared/GCPCICD
