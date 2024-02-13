@@ -1,0 +1,19 @@
+name: Deploy Databricks Notebook
+on:
+ push:
+ branches:
+ - main
+jobs:
+ deploy:
+ runs-on: ubuntu-latest
+ steps:
+ - name: Checkout code
+ uses: actions/checkout@v2
+ - name: Install Databricks CLI
+ run: |
+ pip install databricks-cli
+ - name: Deploy notebooks
+ run: |
+ databricks workspace import_dir ganeshmurthyit/ZenniDEV/cleanup (1).py /Workspace/Shared/GCPCICD
+ # You may need to authenticate with Databricks using a token or username/password
+ # Example: databricks configure --token
