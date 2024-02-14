@@ -14,10 +14,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Databricks CLI
-        run: |
+        #run: |
         uses: microsoft/install-databricks-cli@v1.0.0
-        /home/runner/.local/bin/databricks configure
-        
+
           #pip install databricks-cli
           #databricks --version
           #export PATH="$PATH:~/.local/bin"
