@@ -19,6 +19,7 @@ jobs:
           databricks --version
           export PATH="$PATH:~/.local/bin"
           source ~/.bashrc  # or source ~/.zshrc for Zsh users
+          /home/runner/.local/bin/databricks configure
           #sudo curl -o /tmp/databricks.deb -L https://databricks.com/api/2.0/tools/install-cli
           #sudo rm -i /tmp/databricks.deb
 
