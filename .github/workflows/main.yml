@@ -15,9 +15,12 @@ jobs:
 
       - name: Install Databricks CLI
         run: |
-          
-          sudo curl -o /tmp/databricks.deb -L https://databricks.com/api/2.0/tools/install-cli
-          sudo rm -i /tmp/databricks.deb
+          pip install databricks-cli
+          databricks --version
+          export PATH="$PATH:~/.local/bin"
+          source ~/.bashrc  # or source ~/.zshrc for Zsh users
+          #sudo curl -o /tmp/databricks.deb -L https://databricks.com/api/2.0/tools/install-cli
+          #sudo rm -i /tmp/databricks.deb
 
       - name: Deploy notebooks
         run: |
