@@ -1,30 +1,39 @@
-name: Deploy Databricks Notebook
+name: CI/CD for Databricks Notebooks
 
 on:
   push:
     branches:
-      - main
+      - main  # Change this to your main branch name
+  pull_request:
+    branches:
+      - main  # Change this to your main branch name
 
 jobs:
   deploy:
+    name: Deploy Notebooks to Databricks
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Install Databricks CLI
-        #run: |
-        uses: microsoft/install-databricks-cli@v1.0.0
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Use your preferred Python version
 
-          #pip install databricks-cli
-          #databricks --version
-          #export PATH="$PATH:~/.local/bin"
-          #source ~/.bashrc  # or source ~/.zshrc for Zsh users
-          #/home/runner/.local/bin/databricks configure
-          #sudo curl -o /tmp/databricks.deb -L https://databricks.com/api/2.0/tools/install-cli
-          #sudo rm -i /tmp/databricks.deb
+    - name: Install Databricks CLI
+      run: |
+        pip install databricks-cli
 
-      - name: Deploy notebooks
-        run: |
-          databricks workspace import_dir ganeshmurthyit/ZenniDEV/cleanup.py /Workspace/Shared/GCPCICD
+    - name: Configure Databricks CLI
+      env:
+        DATABRICKS_HOST: ${{ secrets.https://4207850410470993.3.gcp.databricks.com/ }}
+        DATABRICKS_TOKEN: ${{ secrets.dapiafdcdc98c214854ab7c93a01a19d9d6a }}
+      run: |
+        databricks configure --token
+        databricks workspace configure --host "${DATABRICKS_HOST}" --token "${DATABRICKS_TOKEN}"
+
+    - name: Deploy Notebooks
+      run: |
+        databricks workspace import_dir ganeshmurthyit/ZenniDEV/ /Workspace/Shared/GCPCICD  # Update path and workspace-path as needed
