@@ -22,7 +22,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install --upgrade databricks-cli
-          pip install --databricks-sdk
+          #pip install databricks-sdk
       - name: Set up Databricks CLI
         run: |
          echo "host = https://4207850410470993.3.gcp.databricks.com"> ~/.databrickscfg
