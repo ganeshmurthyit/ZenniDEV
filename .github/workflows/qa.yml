@@ -28,7 +28,7 @@ jobs:
          echo "host = https://4207850410470993.3.gcp.databricks.com"> ~/.databrickscfg
       - name: Configure Databricks CLI
         run: |
-          databricks configure --profile ~/.databrickscfg    
+          databricks configure    
 
       - name: Deploy to QA Databricks Workspace
         run: |
