@@ -23,5 +23,5 @@ jobs:
 
       - name: Deploy to QA Databricks Workspace
         run: |
-          databricks configure --token
+          #databricks configure --token
           databricks workspace import_dir ganeshmurthyit/ZenniDEV/ /Workspace/Shared/GCPCICD
