@@ -14,12 +14,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Databricks CLI
-        run: |
-          pip install databricks-cli
-          databricks --version
-          export PATH="$PATH:~/.local/bin"
-          source ~/.bashrc  # or source ~/.zshrc for Zsh users
-          /home/runner/.local/bin/databricks configure
+        uses: microsoft/install-databricks-cli@v1.0.0
+        #run: |
+          #pip install databricks-cli
+          #databricks --version
+          #export PATH="$PATH:~/.local/bin"
+          #source ~/.bashrc  # or source ~/.zshrc for Zsh users
+          #/home/runner/.local/bin/databricks configure
           #sudo curl -o /tmp/databricks.deb -L https://databricks.com/api/2.0/tools/install-cli
           #sudo rm -i /tmp/databricks.deb
 
