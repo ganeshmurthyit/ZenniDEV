@@ -28,8 +28,8 @@ jobs:
 
     - name: Configure Databricks CLI
       env:
-        DATABRICKS_HOST: ${{ secrets.https://4207850410470993.3.gcp.databricks.com/ }}
-        DATABRICKS_TOKEN: ${{ secrets.dapiafdcdc98c214854ab7c93a01a19d9d6a }}
+        DATABRICKS_HOST: ${{ https://4207850410470993.3.gcp.databricks.com/ }}
+        DATABRICKS_TOKEN: ${{ dapiafdcdc98c214854ab7c93a01a19d9d6a }}
       run: |
         databricks configure --token
         databricks workspace configure --host "${DATABRICKS_HOST}" --token "${DATABRICKS_TOKEN}"
