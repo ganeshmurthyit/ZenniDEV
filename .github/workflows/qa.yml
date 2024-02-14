@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for QA Environment
+name: Databricks Deployment
 
 on:
   push:
@@ -6,30 +6,27 @@ on:
       - main
 
 jobs:
-  deploy_to_qa:
+  deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-      - name: Install Databricks CLI
-        run: |
-          pip install --upgrade pip
-          pip install --upgrade databricks-cli
-          #pip install databricks-sdk
-      - name: Set up Databricks CLI
-        run: |
-         echo "host = https://4207850410470993.3.gcp.databricks.com"> ~/.databrickscfg
-      - name: Configure Databricks CLI
-        run: |
-          databricks configure --profile ~/.databrickscfg
-      - name: Deploy to QA Databricks Workspace
-        run: |
-          databricks configure --token
-          databricks workspace import_dir ganeshmurthyit/ZenniDEV/ /Workspace/Shared/GCPCICD
+    - name: Install Databricks CLI
+      run: pip install databricks-cli
+
+    - name: Deploy Notebooks
+      env:
+        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        DATABRICKS_HOST: <YOUR_DATABRICKS_HOST>
+        DATABRICKS_TOKEN: <YOUR_DATABRICKS_TOKEN>
+        DATABRICKS_CLUSTER_ID: <YOUR_DATABRICKS_CLUSTER_ID>
+      run: |
+        databricks configure --token
+        databricks workspace import_dir /path/to/notebooks /destination_path
