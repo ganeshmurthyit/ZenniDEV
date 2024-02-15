@@ -21,12 +21,26 @@ jobs:
     - name: Install Databricks CLI
       run: pip install databricks-cli
 
-    - name: Authenticate with Databricks
-      run: databricks configure --token && databricks workspace configure --token
+    #- name: Authenticate with Databricks
+      #run: databricks configure --token && databricks workspace configure --token
       env:
-        DATABRICKS_HOST:  https://4207850410470993.3.gcp.databricks.com
-        DATABRICKS_TOKEN: ${{ secrets.dapi9fb35870e76c8a2438df9aae310e2cef }}
+        #DATABRICKS_HOST:  https://4207850410470993.3.gcp.databricks.com
+        #DATABRICKS_TOKEN: ${{ secrets.dapi9fb35870e76c8a2438df9aae310e2cef }}
+      databricks configure --token <<EOF
+      https://4207850410470993.3.gcp.databricks.com
+      dapi9fb35870e76c8a2438df9aae310e2cef
+      EOF
 
+      databricks workspace configure --token <<EOF
+      https://4207850410470993.3.gcp.databricks.com
+      dapi9fb35870e76c8a2438df9aae310e2cef
+      EOF
+
+export DATABRICKS_HOST=https://4207850410470993.3.gcp.databricks.com
+export DATABRICKS_TOKEN=dapi9fb35870e76c8a2438df9aae310e2cef
+
+#databricks configure --token
+#databricks workspace configure --token
     - name: Import to Databricks Workspace
       run: databricks workspace import_dir https://github.com/ganeshmurthyit/ZenniDEV/tree/main/CICDTest /Shared/GCPCICD
       env:
