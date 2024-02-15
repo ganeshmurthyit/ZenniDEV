@@ -28,4 +28,4 @@ jobs:
         DATABRICKS_TOKEN: ${{ secrets.dapi3e127f2d288fbeae0f26bc537ae79433 }}
         DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
       run: |
-        databricks workspace import_dir ZenniDEV/DEVCICD /Workspace/Shared/GCPCICD
+        databricks workspace import_dir /ZenniDEV/CICDTest /Workspace/Shared/GCPCICD
