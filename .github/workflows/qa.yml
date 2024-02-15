@@ -23,7 +23,7 @@ jobs:
 
     - name: Deploy Notebooks
       env:
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ ganeshmurthyit/ZenniDEV/databricks-362300-4eecbc223d73.json }}
+        GOOGLE_APPLICATION_CREDENTIALS: ${{ sa2sa2@databricks-362300.iam.gserviceaccount.com }}
         DATABRICKS_HOST: <https://4207850410470993.3.gcp.databricks.com>
         DATABRICKS_TOKEN: <dapi0c11996cb775631820d17c1d3605c7d2>
         DATABRICKS_CLUSTER_ID: <0215-061921-zf7bgs6c>
