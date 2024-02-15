@@ -1,0 +1,44 @@
+name: CI/CD for GCP DataBricks Workspace
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy_to_databricks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install databricks-cli
+
+      - name: Deploy to DataBricks
+        env:
+          GITHUB_TOKEN: ${{ secrets.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 }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: |
+          # Authenticate with GitHub
+          git config --global user.email "ganeshmurthyit@gmail.com"
+          git config --global user.name "ganeshmurthyit"
+          
+          # Authenticate with GCP using service account key
+          echo "${GCP_SA_KEY}" > databricks-362300-4eecbc223d73.json
+          export GOOGLE_APPLICATION_CREDENTIALS="$PWD/databricks-362300-4eecbc223d73.json"
+          
+          # Deploy code to DataBricks
+          databricks configure --token
+          databricks workspace import -l PYTHON --overwrite https://github.com/ganeshmurthyit/ZenniDEV/tree/main/CICDTest ZenniDEV/CICDTest/
+
+
