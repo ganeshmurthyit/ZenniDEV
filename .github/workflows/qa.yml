@@ -24,9 +24,9 @@ jobs:
     - name: Deploy Notebooks
       env:
         GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-        DATABRICKS_HOST: <https://4207850410470993.3.gcp.databricks.com>
-        DATABRICKS_TOKEN: <dapi3e127f2d288fbeae0f26bc537ae79433>
-        DATABRICKS_CLUSTER_ID: <0215-061921-zf7bgs6c>
+        DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
+        DATABRICKS_TOKEN: dapi3e127f2d288fbeae0f26bc537ae79433
+        DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
       run: |
         databricks configure --token
         databricks workspace import_dir ganeshmurthyit/ZenniDEV/ /Workspace/Shared/GCPCICD
