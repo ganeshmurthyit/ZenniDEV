@@ -1,31 +1,33 @@
 name: Deploy to Databricks
 
 on:
-  push:
-    branches:
-      - main  # Change this to your branch name
+ push:
+ branches:
+ - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+ deploy:
+ runs-on: ubuntu-latest
+ 
+ steps:
+ - name: Checkout Repository
+ uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+ - name: Set up Python
+ uses: actions/setup-python@v2
+ with:
+ python-version: '3.x'
 
-    - name: Install Databricks CLI
-      run: pip install databricks-cli
+ - name: Install Databricks CLI
+ run: pip install databricks-cli
 
-    - name: Authenticate with Databricks
-      run: databricks configure --token && databricks workspace configure --token
-      env:
-        DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
-        DATABRICKS_TOKEN: ${{ secrets.dapi3e127f2d288fbeae0f26bc537ae79433 }}
+ - name: Authenticate with Databricks
+ run: databricks configure --token && databricks workspace configure --token
+ env:
+ DATABRICKS_HOST: ${{ secrets.https://4207850410470993.3.gcp.databricks.com/ }}
+ DATABRICKS_TOKEN: ${{ secrets.dapi9fb35870e76c8a2438df9aae310e2cef }}
 
-    - name: Import to Databricks Workspace
-      run: databricks workspace import_dir https://github.com/ganeshmurthyit/ZenniDEV/tree/main/CICDTest /Workspace/Shared/GCPCICD
+ - name: Import to Databricks Workspace
+ run: databricks workspace import_dir https://github.com/ganeshmurthyit/ZenniDEV/tree/main/CICDTest /Shared/GCPCICD
+ env:
+ GH_TOKEN: ${{ secrets.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 }}
