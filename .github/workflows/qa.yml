@@ -24,7 +24,7 @@ jobs:
     - name: Authenticate with Databricks
       run: databricks configure --token && databricks workspace configure --token
       env:
-        DATABRICKS_HOST: ${{ secrets.https://4207850410470993.3.gcp.databricks.com }}
+        DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
         DATABRICKS_TOKEN: ${{ secrets.dapi3e127f2d288fbeae0f26bc537ae79433 }}
 
     - name: Import to Databricks Workspace
