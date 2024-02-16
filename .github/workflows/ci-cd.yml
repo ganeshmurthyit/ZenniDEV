@@ -19,7 +19,7 @@ jobs:
 
       - name: Import Notebooks to Databricks Workspace
         env:
-          DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com/
+          DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
           databricks configure --token
