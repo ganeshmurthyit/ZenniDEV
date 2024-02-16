@@ -12,7 +12,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
+        
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+         python-version: '3.x'
+        
       - name: Install Databricks CLI
         run: |
           #/home/runner/.local/bin/databricks configure
