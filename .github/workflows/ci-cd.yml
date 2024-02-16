@@ -23,4 +23,4 @@ jobs:
           DATABRICKS_TOKEN: ${{ secrets.dapi4a0e47ceb2e1fe223f71ce2699e13c7c }}
         run: |
           databricks configure --token
-          databricks workspace import_dir https://github.com/ganeshmurthyit/ZenniDEV/tree/main/CICDTest /Shared/GCPCICD
+          databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV /Shared/GCPCICD
