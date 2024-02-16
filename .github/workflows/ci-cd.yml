@@ -15,10 +15,10 @@ jobs:
 
       - name: Install Databricks CLI
         run: |
+          /home/runner/.local/bin/databricks configure
           pip install databricks-cli
           pip install --upgrade urllib3 chardet
-          /home/runner/.local/bin/databricks configure
-
+        
       - name: Import Notebooks to Databricks Workspace
         env:
           DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
