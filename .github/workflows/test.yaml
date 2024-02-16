@@ -1,14 +1,26 @@
-name: databricks-cicd
-...
-jobs:
-  main:
-    runs-on: ubuntu-latest
-    ...
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+name: Deploy to Databricks
 
-      # Install databricks CLI as per https://docs.databricks.com/dev-tools/cli/databricks-cli.html
-      - name: Install databricks CLI
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Databricks CLI
         run: |
-         curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+          pip install databricks-cli
+
+      - name: Push notebooks to Databricks
+        env:
+          DATABRICKS_TOKEN: dapi4a0e47ceb2e1fe223f71ce2699e13c7c
+          DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
+          DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
+        run: |
+          databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV /Shared/GCPCICD
