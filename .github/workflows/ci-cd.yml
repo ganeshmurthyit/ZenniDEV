@@ -16,7 +16,8 @@ jobs:
       - name: Install Databricks CLI
         run: |
           pip install databricks-cli
-          #pip install --upgrade urllib3 chardet
+          pip install --upgrade urllib3 chardet
+          /home/runner/.local/bin/databricks configure
 
       - name: Import Notebooks to Databricks Workspace
         env:
@@ -24,5 +25,4 @@ jobs:
           DATABRICKS_TOKEN: dapi4a0e47ceb2e1fe223f71ce2699e13c7c
         run: |
           databricks configure --token
-          /home/runner/.local/bin/databricks configure
           databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV /Shared/GCPCICD
