@@ -23,4 +23,4 @@ jobs:
           DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
           DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
         run: |
-          databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV /Shared/GCPCICD
+          databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV/CICDTest /Shared/GCPCICD/CICDTest
