@@ -27,9 +27,8 @@ jobs:
       - name: Import Notebooks to Databricks Workspace
         env:
           DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
-          DATABRICKS_TOKEN: dapi4a0e47ceb2e1fe223f71ce2699e13c7c
+          DATABRICKS_TOKEN: ${{ dapi4a0e47ceb2e1fe223f71ce2699e13c7c }}
         run: |
-          #databricks configure --token
-          databricks configure --host $DATABRICKS_HOST --token $DATABRICKS_TOKEN
+          databricks configure --token $DATABRICKS_TOKEN
           #export DATABRICKS_HOST=https://4207850410470993.3.gcp.databricks.com
           databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV /Shared/GCPCICD
