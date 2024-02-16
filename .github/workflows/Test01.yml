@@ -1,0 +1,14 @@
+name: databricks-cicd
+...
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    ...
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # Install databricks CLI as per https://docs.databricks.com/dev-tools/cli/databricks-cli.html
+      - name: Install databricks CLI
+        run: |
+         curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
