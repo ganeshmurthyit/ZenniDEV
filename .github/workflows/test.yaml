@@ -33,4 +33,4 @@ jobs:
            warnings.filterwarnings("ignore", category=InsecureRequestWarning)
            
         run: |
-          databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV/CICDTest\ /Shared/GCPCICD/CICDTest
+          databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV/CICDTest /Shared/GCPCICD/CICDTest
