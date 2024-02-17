@@ -1,2 +1,1 @@
 print ("Ganesh")
-print ("Murthy")
