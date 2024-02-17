@@ -16,6 +16,10 @@ jobs:
       - name: Install Databricks CLI
         run: |
           pip install databricks-cli
+          
+      - name: Install Python CLI
+        run: |
+          pip install --upgrade urllib3 chardet
 
       - name: Push notebooks to Databricks
         env:
