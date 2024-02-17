@@ -26,5 +26,8 @@ jobs:
           DATABRICKS_TOKEN: dapi4a0e47ceb2e1fe223f71ce2699e13c7c
           DATABRICKS_HOST: https://4207850410470993.3.gcp.databricks.com
           DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
+           import warnings
+           from requests.packages.urllib3.exceptions import InsecureRequestWarning
+           warnings.filterwarnings("ignore", category=InsecureRequestWarning)
         run: |
           databricks workspace import_dir /home/runner/work/ZenniDEV/ZenniDEV/CICDTest /Shared/GCPCICD/CICDTest
