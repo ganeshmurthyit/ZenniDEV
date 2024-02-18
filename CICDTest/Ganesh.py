@@ -1,2 +1,1 @@
 print ("india")
-print("test")
