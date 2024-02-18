@@ -24,4 +24,4 @@ jobs:
           #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
                      
         run: |
-          databricks workspace import_dir -o --overwrite https://github.com/ganeshmurthyit/ZenniDEV/tree/DEV /Shared/GCPCICD/
+          databricks workspace import_dir -o --overwrite /home/runner/work/ZenniDEV /Shared/GCPCICD/
