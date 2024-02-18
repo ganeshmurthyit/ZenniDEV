@@ -1,2 +1,2 @@
 print ("Ganesh")
-print ("Murthy")
+print ("GMMurthy")
