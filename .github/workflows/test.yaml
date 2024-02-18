@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -24,4 +24,4 @@ jobs:
           DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
                      
         run: |
-          databricks workspace import_dir D:\a\ZenniDEV\ /Shared/GCPCICD/ --overwrite
+          databricks workspace import_dir /home/runner/work/ZenniDEV/ /Shared/GCPCICD/ --overwrite
