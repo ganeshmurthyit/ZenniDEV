@@ -1,2 +1,3 @@
 print ("india")
-print ("12345")
+print ("123")
+print("yahoo")
