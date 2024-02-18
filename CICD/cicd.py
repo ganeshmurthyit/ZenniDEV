@@ -1,3 +1,3 @@
 print("test")
-print ("123456789")
+print ("12345")
 print ("india")
