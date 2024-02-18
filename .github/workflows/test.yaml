@@ -24,4 +24,4 @@ jobs:
           DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
                      
         run: |
-          databricks workspace import_dir /home/runner/work/ZenniDEV/ /Shared/GCPCICD/ --update
+          databricks workspace import_dir -o --overwrite -p true /home/runner/work/ZenniDEV/ /Shared/GCPCICD/
