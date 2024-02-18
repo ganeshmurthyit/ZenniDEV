@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -16,11 +16,7 @@ jobs:
       - name: Install Databricks CLI
         run: |
           pip install databricks-cli
-          
-      - name: Install Python CLI
-        run: |
-          pip install --upgrade urllib3 chardet
-
+   
       - name: Push notebooks to Databricks
         env:
           DATABRICKS_TOKEN: dapi4a0e47ceb2e1fe223f71ce2699e13c7c
@@ -28,4 +24,4 @@ jobs:
           DATABRICKS_CLUSTER_ID: 0215-061921-zf7bgs6c
                      
         run: |
-          databricks workspace import_dir D:\a\ZenniDEV\ZenniDEV /Shared/GCPCICD/
+          databricks workspace import_dir D:\a\ZenniDEV /Shared/GCPCICD/
