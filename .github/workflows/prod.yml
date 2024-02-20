@@ -3,7 +3,7 @@ name: Deploy to Databricks
 on:
   push:
     branches:
-      - QA
+      - PROD
 
 jobs:
   deploy:
@@ -19,9 +19,9 @@ jobs:
    
       - name: Push notebooks to Databricks
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN01 }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOSTPRD }}
           #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
                      
         run: |
-          databricks workspace import_dir -o --overwrite /home/runner/work/ZenniDEV /Shared/GCPCICD/
+          databricks workspace import_dir -o --overwrite /home/runner/work/ZenniDEV /Shared/ZenniProd/
