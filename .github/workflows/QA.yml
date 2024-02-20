@@ -27,3 +27,4 @@ jobs:
                      
         run: |
           databricks workspace import_dir -o --overwrite /home/runner/work/ZenniDEV/ZenniDEV /Shared/DETeam/
+          exclude: .github/workflows
