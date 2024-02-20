@@ -21,6 +21,7 @@ jobs:
       with:
         databricks_host: ${{ secrets.DATABRICKS_HOST }}
         databricks_token: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
         source_path: /home/runner/work/ZenniDEV
         destination_path: /Shared/DETeam/
         exclude: .github/workflows  # Exclude .github/workflows folder
