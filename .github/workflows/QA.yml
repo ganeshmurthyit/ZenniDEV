@@ -11,9 +11,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Fetch all history for full repository
-
+ 
     - name: Install Databricks CLI
       run: |
         pip install databricks-cli
