@@ -6,22 +6,27 @@ on:
       - QA
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
- 
-    - name: Install Databricks CLI
-      run: |
-        pip install databricks-cli
 
-    - name: Import notebooks into Databricks workspace
-      uses: databrickslabs/gha-databricks@v1.0.0
-      with:
-        databricks_host: ${{ secrets.DATABRICKS_HOST }}
-        databricks_token: ${{ secrets.DATABRICKS_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Databricks CLI
         run: |
-        source_path: /home/runner/work/ZenniDEV
-        destination_path: /Shared/DETeam/
-        exclude: .github/workflows  # Exclude .github/workflows folder
+          pip install databricks-cli
+   
+      - name: Push notebooks to Databricks
+        env:
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          #DATABRICKS_TOKEN01: ${{ secrets.DATABRICKS_TOKEN01 }}
+          #DATABRICKS_HOSTPRD: ${{ secrets.DATABRICKS_HOSTPRD }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
+                     
+        run: |
+          databricks workspace import_dir -o --overwrite         
+          source_path: /home/runner/work/ZenniDEV
+          destination_path: /Shared/DETeam/
+          exclude: .github/workflows  # Exclude .github/workflows folder
