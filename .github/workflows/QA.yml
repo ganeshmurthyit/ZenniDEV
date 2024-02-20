@@ -26,4 +26,4 @@ jobs:
           #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
                      
         run: |
-          databricks workspace import_dir -o --overwrite ganeshmurthyit/ZenniDEV/DETeam_Code /Shared/DETeam/
+          databricks workspace import_dir -o --overwrite /home/runner/work/ZenniDEV/ZenniDEV /Shared/DETeam/
