@@ -1,25 +1,29 @@
-name: Databricks Workspace Import
+name: Deploy to Databricks
 
 on:
   push:
     branches:
-      - QA  # Adjust branch name as needed
+      - QA
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Fetch all history for full repository
 
-    - name: Import notebooks into Databricks workspace
-      uses: ganeshmurthyit/ZenniDEV@v2.0.0
-      with:
-        databricks_host: ${{ secrets.DATABRICKS_HOST }}
-        databricks_token: ${{ secrets.DATABRICKS_TOKEN }}
-        source_path: /home/runner/work/ZenniDEV
-        destination_path: /Shared/DETeam/
-        exclude: .github/workflows  # Exclude .github/workflows folder
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Databricks CLI
+        run: |
+          pip install databricks-cli
+   
+      - name: Push notebooks to Databricks
+        env:
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          #DATABRICKS_TOKEN01: ${{ secrets.DATABRICKS_TOKEN01 }}
+          #DATABRICKS_HOSTPRD: ${{ secrets.DATABRICKS_HOSTPRD }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
+                     
+        run: |
+          databricks workspace import_dir -o --overwrite /DETeam_Code /Shared/DETeam/
