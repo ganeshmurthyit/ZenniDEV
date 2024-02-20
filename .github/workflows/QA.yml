@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -26,4 +26,4 @@ jobs:
           #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
                      
         run: |
-          databricks workspace import_dir -o --overwrite D:\a\ZenniDEV\ZenniDEV /Shared/QA/
+          databricks workspace import_dir -o --overwrite D:\a\ZenniDEV\ZenniDEV /Shared/DETeam/
