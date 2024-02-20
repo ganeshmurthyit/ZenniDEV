@@ -16,7 +16,7 @@ jobs:
         fetch-depth: 0  # Fetch all history for full repository
 
     - name: Import notebooks into Databricks workspace
-      uses: ganeshmurthyit/ZenniDEV@v1.0.0
+      uses: ganeshmurthyit/ZenniDEV@v2.0.0
       with:
         databricks_host: ${{ secrets.DATABRICKS_HOST }}
         databricks_token: ${{ secrets.DATABRICKS_TOKEN }}
