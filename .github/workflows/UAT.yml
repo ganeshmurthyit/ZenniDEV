@@ -1,0 +1,29 @@
+name: Deploy to Databricks
+
+on:
+  push:
+    branches:
+      - UAT
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Databricks CLI
+        run: |
+          pip install databricks-cli
+   
+      - name: Push notebooks to Databricks
+        env:
+          #DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_TOKEN01: ${{ secrets.DATABRICKS_TOKEN01 }}
+          DATABRICKS_HOSTPRD: ${{ secrets.DATABRICKS_HOSTPRD }}
+          #DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          #DATABRICKS_CLUSTER_ID: ${{ secrets.DATABRICKS_CLUSTER_ID }}
+                     
+        run: |
+          databricks workspace import_dir -o --overwrite ./DETeam /Shared/DETeam/
