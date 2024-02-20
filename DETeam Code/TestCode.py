@@ -1,2 +1,2 @@
 print("INDIA")
-print("testforprod")
+print("testforprodandDEV")
