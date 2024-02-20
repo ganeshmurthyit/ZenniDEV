@@ -3,7 +3,7 @@ name: Deploy to Databricks
 on:
   push:
     branches:
-      - QA\DETeam_Code
+      - QA
 
 jobs:
   deploy:
