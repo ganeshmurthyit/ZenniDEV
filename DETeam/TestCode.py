@@ -1,2 +1,1 @@
-print("INDIA")
-print ("final QA Test")
+print("12345")
