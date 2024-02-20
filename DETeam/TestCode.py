@@ -1,2 +1,1 @@
-print("INDIA")
-print("testDEV")
+print("12345")
