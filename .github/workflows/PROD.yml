@@ -19,8 +19,8 @@ jobs:
    
       - name: Push notebooks to Databricks
         env:
-          DATABRICKS_TOKEN01: ${{ secrets.DATABRICKS_TOKEN01 }}
-          DATABRICKS_HOSTPRD: ${{ secrets.DATABRICKS_HOSTPRD }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN01 }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOSTPRD }}
                      
         run: |
           databricks workspace import_dir -o --overwrite ./DETeam /Shared/QADemo/
