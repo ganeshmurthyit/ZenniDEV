@@ -1,2 +1,2 @@
 print("DE")
-print("123456")
+print("12345")
