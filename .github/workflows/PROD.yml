@@ -23,4 +23,4 @@ jobs:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOSTPRD }}
                      
         run: |
-          databricks workspace import_dir -o --overwrite ./DETeam /Shared/QADemo/
+          databricks workspace import_dir -o --overwrite ./DETeam /Shared/PRODDemo/
